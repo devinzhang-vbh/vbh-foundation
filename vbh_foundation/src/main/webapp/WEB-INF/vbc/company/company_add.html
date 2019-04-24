@@ -1,0 +1,70 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/company/company_add.js"]}){
+<div class="container-fluid">
+    <form id="companyForm">
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>公司名称 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyName" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司电话 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyPhone" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司传真 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyFax" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司邮箱 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyEmail" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司地址 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyAddress" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司备案号 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="companyRecordNo" type="text" class="form-control">
+  </div>
+   </div>
+
+ <div class="form-group">
+<h5>语种 <span class="text-danger"></span></h5>
+  <!--<div class="controls">
+   <input id="language" type="text" class="form-control">
+  </div>-->
+     <div class="controls">
+         <!--<input id="language" type="text" class="form-control">-->
+         <select id="language" class="form-control">
+             <option value="CN">中文</option>
+             <option value="US">英文</option>
+         </select>
+
+     </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyAddDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyAddDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

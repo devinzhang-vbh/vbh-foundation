@@ -1,0 +1,93 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/news/news_edit.js","/assets/common/plugins/ckeditor/ckeditor.js","/assets/common/plugins/jquery/ajaxfileupload.js","/assets/common/plugins/laydate/laydate.js"]}){
+<div class="container-fluid">
+    <form id="newsForm">
+
+        <input id="newsId" value="${newsId}" type="hidden" class="form-control">
+        <input id="newsContent1" value='${newsContent}' type="hidden" class="form-control">
+        <input id="newsImage" value='${newsImage}' type="hidden" class="form-control">
+        <input id="language1" value='${language}' type="hidden" class="form-control">
+        <input id="newsCategory1" value='${newsCategory}' type="hidden" class="form-control">
+        <input id="newUpTime1" value='${newUpTime}' type="hidden" class="form-control">
+        <input id="newUpTime2" value='${newUpTime}' type="hidden" class="form-control">
+        <input id="status1" value='${status}' type="hidden" class="form-control">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>新闻分类 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="newsCategory" value="${newsCategory}" type="text" class="form-control">-->
+                        <select id="newsCategory" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻标题 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="newsTitle" value="${newsTitle}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻链接 <span class="text-danger"></span></h5>
+                    <div class="controls">
+                        <input id="newsLink" value="${newsLink}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻图片 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input type="file" name="upload" id="upload"/>
+                        <img alt="" src="" id="attatch_url" width="80px;" height="70px;">
+                    </div>
+                    <h6>图片建议尺寸：1013*600px <span class="text-danger"></span></h6>
+                </div>
+                <div class="form-group">
+                    <h5>新闻来源 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="newsSource" value="${newsSource}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>发布时间 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="upTime" type="datetime-local" class="form-control">-->
+                        <input type="text" id="newUpTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻内容 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                       <!-- <input id="newsContent" value="${newsContent}" type="text" class="form-control">-->
+                        <textarea cols="80" id="newsContent" name="newsContent"  value="${newsContent}" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group" style="display: none;">
+                    <h5>状态 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="status" value="${status}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>语言 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <select id="language" class="form-control">
+                            <option value="CN">中文</option>
+                            <option value="US">英文</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="NewsEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="NewsEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

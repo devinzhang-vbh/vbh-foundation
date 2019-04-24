@@ -1,0 +1,61 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/jobCategory/jobCategory_add.js","/assets/common/plugins/ckeditor/ckeditor.js","/assets/common/plugins/jquery/ajaxfileupload.js"]}){
+<div class="container-fluid">
+    <form id="jobCategoryForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>语言版本 <span class="text-danger">*</span></h5>
+                    <!--<div class="controls">
+                     <input id="language" type="text" class="form-control">
+                    </div>-->
+                    <!--<select class="form-control">
+                        <option>CN</option>
+                        <option>US</option>
+                    </select>-->
+                    <!--<label class="col-md-12">语言</label>-->
+                    <div>
+                        <select id="language" class="form-control">
+                            <option value="CN">中文</option>
+                            <option value="US">英文</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <h5>职位分类 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="JobCategoryName" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>排序 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="seq" type="number" class="form-control" min="0" step="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>状态 <span class="text-danger">*</span></h5>
+                    <!--<div class="controls">-->
+                    <!--<input id="status" type="text" class="form-control">-->
+
+                    <!--</div>-->
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> 启用
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0"> 禁用
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="JobCategoryAddDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="JobCategoryAddDlg.close()">取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

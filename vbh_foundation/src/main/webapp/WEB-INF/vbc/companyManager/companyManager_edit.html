@@ -1,0 +1,73 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/companyManager/companyManager_edit.js","/assets/common/plugins/jquery/ajaxfileupload.js"]}){
+<div class="container-fluid">
+    <form id="companyManagerForm">
+
+        <input id="managerId" value="${managerId}" type="hidden" class="form-control">
+        <input id="managerImage1" value="${managerImage}" type="hidden" class="form-control">
+        <input id="language1" value="${language}" type="hidden" class="form-control">
+
+
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>姓名 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="managerName" value="${managerName}"  type="text" class="form-control">
+  </div>
+   </div>
+                 <div class="form-group">
+<h5>英文名 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="managerEnglishName" value="${managerEnglishName}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>头像 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <!--<input id="managerImage" value="${managerImage}"  type="text" class="form-control">-->
+      <input type="file" name="upload" id="upload"/>:
+      <img alt="" src="" id="attatch_url" width="80px;" height="47px;">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>职位 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="managerJob" value="${managerJob}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>职位简介 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="managerJobDesc" value="${managerJobDesc}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>序列 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="seq" value="${seq}"  type="number" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>语种 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <!--<input id="language" value="${language}"  type="text" class="form-control">-->
+      <select id="language" class="form-control">
+          <option value="CN">中文</option>
+          <option value="US">英文</option>
+      </select>
+  </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyManagerEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyManagerEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

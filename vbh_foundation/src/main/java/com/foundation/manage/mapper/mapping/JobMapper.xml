@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.manage.mapper.JobMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.foundation.manage.entity.VBC.Job">
+        <id column="JOB_ID" property="jobId" />
+        <result column="JOB_CATEGORY_ID" property="jobCategoryId" />
+        <result column="JOB_NAME" property="jobName" />
+        <result column="JOB_LOCATION" property="jobLocation" />
+        <result column="JOB_YEAR" property="jobYear" />
+        <result column="JOB_NUM" property="jobNum" />
+        <result column="JOB_DESC" property="jobDesc" />
+        <result column="JOB_NEED_DESC" property="jobNeedDesc" />
+        <result column="STATUS" property="status" />
+        <result column="CREATE_BY" property="createBy" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" />
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" />
+        <result column="LANGUAGE" property="language" />
+        <result column="EDUCATION" property="education" />
+        <result column="SALARY" property="salary" />
+        <result column="JOB_HIGHLIGHTS" property="jobHighlights" />
+        <result column="JOB_NUMBER" property="jobNumber" />
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        JOB_ID AS jobId,JOB_CATEGORY_ID AS jobCategoryId,JOB_NAME AS jobName,JOB_LOCATION AS jobLocation,JOB_YEAR AS jobYear,JOB_NUM AS jobNum,JOB_DESC AS jobDesc,JOB_NEED_DESC AS jobNeedDesc,STATUS AS status,CREATE_BY AS createBy,CREATE_TIME AS createTime,LAST_UPDATE_BY AS lastUpdateBy,LAST_UPDATE_TIME AS lastUpdateTime,LANGUAGE AS language,EDUCATION AS education,SALARY AS salary,JOB_HIGHLIGHTS AS jobHighlights,JOB_NUMBER AS jobNumber
+    </sql>
+    <sql id="Base_Column_List1">
+        JOB_ID AS jobId,JOB_CATEGORY_ID AS jobCategoryId,JOB_NAME AS jobName,JOB_LOCATION AS jobLocation,JOB_YEAR AS jobYear,JOB_NUM AS jobNum,JOB_DESC AS jobDesc,JOB_NEED_DESC AS jobNeedDesc,STATUS AS status,CREATE_BY AS createBy,CREATE_TIME AS createTime,LAST_UPDATE_BY AS lastUpdateBy,LAST_UPDATE_TIME AS lastUpdateTime,LANGUAGE AS language,JOB_CATEGORY_NAME AS jobCategoryName
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from vbc_website_job
+        <if test="condition != null and condition != ''">
+             where JOB_NAME like CONCAT('%',#{condition},'%') or JOB_DESC like CONCAT('%',#{condition},'%') or JOB_NEED_DESC like CONCAT('%',#{condition},'%') or LANGUAGE like CONCAT('%',#{condition},'%')
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+
+    <select id="list1" resultType="map" parameterType="map">
+        select job.*, image.JOB_IMAGE_URL FROM vbc_website_job job ,vbc_website_job_image image WHERE job.JOB_ID=image.JOB_IMAGE_JOB_ID and job.LANGUAGE = #{lang}
+             and JOB_NAME like CONCAT('%',#{condition},'%') or JOB_DESC like CONCAT('%',#{condition},'%') or JOB_NEED_DESC like CONCAT('%',#{condition},'%')
+        order by CREATE_TIME DESC
+    </select>
+
+    <select id="listAll" resultType="map">
+        select
+        vbc_website_job.*,vbc_website_job_category.JOB_CATEGORY_NAME
+        from vbc_website_job,vbc_website_job_category
+        where vbc_website_job.JOB_CATEGORY_ID=vbc_website_job_category.JOB_CATEGORY_ID
+        ORDER BY vbc_website_job.CREATE_TIME DESC
+    </select>
+    <select id="listByLanguage" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from vbc_website_job
+        <if test="condition != null and condition != ''">
+            where LANGUAGE like CONCAT('%',#{condition},'%')
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+    <select id="listByName" resultType="map">
+        select job.*, image.JOB_IMAGE_URL FROM vbc_website_job job ,vbc_website_job_image image WHERE job.JOB_ID=image.JOB_IMAGE_JOB_ID
+        <if test="condition != null and condition != ''">
+           AND JOB_NAME like CONCAT('%',#{condition},'%') or JOB_DESC like CONCAT('%',#{condition},'%') or JOB_NEED_DESC like CONCAT('%',#{condition},'%')
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+</mapper>

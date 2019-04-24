@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.manage.mapper.JobCategoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.foundation.manage.entity.VBC.JobCategory">
+       <id column="JOB_CATEGORY_ID" property="jobCategoryId" />
+<result column="JOB_CATEGORY_NAME" property="JobCategoryName" />
+<result column="JOB_CATEGORY_IMAGE" property="jobCategoryImage" />
+<result column="STATUS" property="status" />
+<result column="SEQ" property="seq" />
+<result column="CREATE_BY" property="createBy" />
+<result column="CREATE_TIME" property="createTime" />
+<result column="LAST_UPDATE_BY" property="lastUpdateBy" />
+<result column="LAST_UPDATE_TIME" property="lastUpdateTime" />
+<result column="LANGUAGE" property="language" />
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        JOB_CATEGORY_ID AS jobCategoryId,JOB_CATEGORY_NAME AS JobCategoryName,JOB_CATEGORY_IMAGE AS jobCategoryImage,STATUS AS status,SEQ AS seq,CREATE_BY AS createBy,CREATE_TIME AS createTime,LAST_UPDATE_BY AS lastUpdateBy,LAST_UPDATE_TIME AS lastUpdateTime,LANGUAGE AS language
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from vbc_website_job_category
+        <if test="condition != null and condition != ''">
+             where JOB_CATEGORY_NAME like CONCAT('%',#{condition},'%') or LANGUAGE like CONCAT('%',#{condition},'%')
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+</mapper>

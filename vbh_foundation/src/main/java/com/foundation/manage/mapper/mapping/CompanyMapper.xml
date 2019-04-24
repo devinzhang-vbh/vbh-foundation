@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.manage.mapper.CompanyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.foundation.manage.entity.VBC.Company">
+       <id column="COMPANY_ID" property="companyId" />
+<result column="COMPANY_NAME" property="companyName" />
+<result column="COMPANY_PHONE" property="companyPhone" />
+<result column="COMPANY_FAX" property="companyFax" />
+<result column="COMPANY_EMAIL" property="companyEmail" />
+<result column="COMPANY_ADDRESS" property="companyAddress" />
+<result column="COMPANY_RECORD_NO" property="companyRecordNo" />
+<result column="COMPANY_DESC" property="companyDesc" />
+<result column="COMPANY_CULTURE_DESC" property="companyCultureDesc" />
+<result column="COMPANY_REWARD_DESC" property="companyRewardDesc" />
+<result column="CREATE_BY" property="creatBy" />
+<result column="CREATE_TIME" property="createTime" />
+<result column="LAST_UPDATE_BY" property="lastUpdateBy" />
+<result column="LAST_UPDATE_TIME" property="lastUpdateTime" />
+<result column="LANGUAGE" property="language" />
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        COMPANY_ID AS companyId,COMPANY_NAME AS companyName,COMPANY_PHONE AS companyPhone,COMPANY_FAX AS companyFax,COMPANY_EMAIL AS companyEmail,COMPANY_ADDRESS AS companyAddress,COMPANY_RECORD_NO AS companyRecordNo,COMPANY_DESC AS companyDesc,COMPANY_CULTURE_DESC AS companyCultureDesc,COMPANY_REWARD_DESC AS companyRewardDesc,CREATE_BY AS creatBy,CREATE_TIME AS createTime,LAST_UPDATE_BY AS lastUpdateBy,LAST_UPDATE_TIME AS lastUpdateTime,LANGUAGE AS language
+    </sql>
+
+    <select id="list" resultType="map">
+        select
+        <include refid="Base_Column_List"></include>
+        from vbc_website_company
+        <if test="condition != null and condition != ''">
+            <!-- where TITLE like CONCAT('%',#{condition},'%') or CONTENT like CONCAT('%',#{condition},'%') -->
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+</mapper>

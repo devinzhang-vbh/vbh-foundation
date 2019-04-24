@@ -1,0 +1,39 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/company/company_add_detail.js","/assets/common/plugins/ckeditor/ckeditor.js","/assets/common/plugins/jquery/ajaxfileupload.js"]}){
+<div class="container-fluid">
+    <form id="companyForm">
+
+        <input id="companyId" value="${companyId}" type="hidden" class="form-control">
+        <input id="companyName" value="${companyName}"  type="hidden" class="form-control">
+        <input id="companyPhone" value="${companyPhone}"  type="hidden" class="form-control">
+        <input id="companyFax" value="${companyFax}"  type="hidden" class="form-control">
+        <input id="companyEmail" value="${companyEmail}"  type="hidden" class="form-control">
+        <input id="companyAddress" value="${companyAddress}"  type="hidden" class="form-control">
+        <input id="companyRecordNo" value="${companyRecordNo}"  type="hidden" class="form-control">
+        <input id="companyDesc1" value='${companyDesc}'  type="hidden" class="form-control">
+        <!--<input id="companyCultureDesc" value="${companyCultureDesc}"  type="hidden" class="form-control">
+        <input id="companyRewardDesc" value="${companyRewardDesc}"  type="hidden" class="form-control">-->
+        <input id="language" value="${language}"  type="hidden" class="form-control">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="form-group">
+                    <h5>公司简介 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!-- <input id="newsContent" type="text" class="form-control">-->
+                        <textarea cols="80" id="companyDesc" name="companyDesc" value="${companyDesc}" rows="10"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyAddDetailDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyAddDetailDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

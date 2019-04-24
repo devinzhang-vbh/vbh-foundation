@@ -1,0 +1,162 @@
+
+package com.foundation.manage.controller;
+
+import cn.hutool.core.bean.BeanUtil;
+import cn.stylefeng.roses.core.base.controller.BaseController;
+import cn.stylefeng.roses.core.util.ToolUtil;
+import cn.stylefeng.roses.kernel.model.exception.ServiceException;
+import BussinessLog;
+import ConstantFactory;
+import BizExceptionEnum;
+import Notice;
+import LogObjectHolder;
+import NoticeService;
+import ShiroKit;
+import NoticeWrapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+
+
+import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 通知控制器
+ *
+ * @author yt
+ */
+@Controller
+@RequestMapping("/notice")
+public class NoticeController extends BaseController {
+
+    private static final String PREFIX = "/system/notice/";
+
+    @Autowired
+    private NoticeService noticeService;
+
+    /**
+     * 跳转到通知列表首页
+     *
+     */
+    @RequestMapping("")
+    public String index() {
+        return PREFIX + "notice.html";
+    }
+
+    /**
+     * 跳转到添加通知
+     *
+     */
+    @RequestMapping("/notice_add")
+    public String noticeAdd() {
+        return PREFIX + "notice_add.html";
+    }
+
+    /**
+     * 跳转到修改通知
+     * @param noticeId
+     * @param model
+     * @return
+     */
+    @RequestMapping("/notice_update/{noticeId}")
+    public String noticeUpdate(@PathVariable Long noticeId, Model model) {
+        Notice notice = this.noticeService.selectById(noticeId);
+        model.addAllAttributes(BeanUtil.beanToMap(notice));
+        LogObjectHolder.me().set(notice);
+        return PREFIX + "notice_edit.html";
+    }
+
+
+    /**
+     * 获取通知列表
+     * @param condition
+     * @return
+     */
+    @RequestMapping(value = "/list")
+    @ResponseBody
+    public Object list(String condition) {
+        List<Map<String, Object>> list = this.noticeService.list(condition);
+        return super.warpObject(new NoticeWrapper(list));
+    }
+
+    /**
+     * 新增通知
+     * @param notice
+     * @return
+     */
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    //@BussinessLog(value = "新增通知", key = "title", dict = NoticeMap.class)
+    public Object add(Notice notice) {
+        //if (ToolUtil.isOneEmpty(notice, notice.getTitle(), notice.getContent())) {
+        //    throw new ServiceException(BizExceptionEnum.REQUEST_NULL);
+        //}
+        notice.setCreateBy(ShiroKit.getUserNotNull().getAccount());
+        notice.setCreateTime(new Date());
+		notice.setLastUpdateBy(ShiroKit.getUserNotNull().getAccount());
+        notice.setLastUpdateTime(new Date());
+        this.noticeService.insert(notice);
+        return SUCCESS_TIP;
+    }
+
+    /**
+     * 删除通知
+     * @param noticeId
+     * @return
+     */
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+   // @BussinessLog(value = "删除通知", key = "noticeId", dict = NoticeMap.class)
+    public Object delete(@RequestParam Long noticeId) {
+
+        //缓存通知名称
+       // LogObjectHolder.me().set(ConstantFactory.me().getNoticeTitle(noticeId));
+
+        this.noticeService.deleteById(noticeId);
+
+        return SUCCESS_TIP;
+    }
+
+    /**
+     * 修改通知
+     * @param notice
+     * @return
+     */
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    //@BussinessLog(value = "修改通知", key = "title", dict = NoticeMap.class)
+    public Object update(Notice notice) {
+        //if (ToolUtil.isOneEmpty(notice, notice.getNoticeId(), notice.getTitle(), notice.getContent())) {
+        //    throw new ServiceException(BizExceptionEnum.REQUEST_NULL);
+        //}
+        //Notice old = this.noticeService.selectById(notice.getNoticeId());
+        /**
+		** add update logic here
+		*/
+		notice.setLastUpdateBy(ShiroKit.getUserNotNull().getAccount());
+        notice.setLastUpdateTime(new Date());
+        this.noticeService.updateById(notice);
+        return SUCCESS_TIP;
+    }
+	
+	
+	@InitBinder
+    protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        CustomDateEditor editor = new CustomDateEditor(df, true);//true表示允许为空，false反之
+        binder.registerCustomEditor(Date.class, editor);
+    }
+
+}

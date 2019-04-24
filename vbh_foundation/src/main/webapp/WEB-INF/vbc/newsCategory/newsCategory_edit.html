@@ -1,0 +1,58 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/newsCategory/newsCategory_edit.js"]}){
+<div class="container-fluid">
+    <form id="newsCategoryForm">
+
+        <input id="newsCategoryId" value="${newsCategoryId}" type="hidden" class="form-control">
+        <input id="language1" value='${language}' type="hidden" class="form-control">
+        <input id="status1" value='${status}' type="hidden" class="form-control">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>新闻分类名称 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="newsCategoryName" value="${newsCategoryName}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>序号 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="seq" value="${seq}" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>状态 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="status" value="${status}" type="text" class="form-control">-->
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" > 启用
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" > 禁用
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>语言 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                       <!-- <input id="language" value="${language}" type="text" class="form-control">-->
+                        <select id="language" class="form-control">
+                            <option value="CN">中文</option>
+                            <option value="US">英文</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="NewsCategoryEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="NewsCategoryEditDlg.close()">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

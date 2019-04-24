@@ -1,0 +1,28 @@
+package com.foundation.manage.entity;
+
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <p>
+ * 通知表
+ * </p>
+ *
+ * @author yt
+ */
+@TableName("sys_notice")
+public class Notice implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    autoField
+
+
+    autoGetSet
+}

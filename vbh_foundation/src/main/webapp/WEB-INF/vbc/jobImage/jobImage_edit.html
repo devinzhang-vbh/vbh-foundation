@@ -1,0 +1,65 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/jobImage/jobImage_edit.js","/assets/common/plugins/jquery/ajaxfileupload.js"]}){
+<div class="container-fluid">
+    <form id="jobImageForm">
+
+        <input id="jobImageId" value="${jobImageId}" type="hidden" class="form-control">
+        <input id="language1" value="${language}" type="hidden" class="form-control">
+        <input id="status1" value="${status}" type="hidden" class="form-control">
+        <input id="jobImageUrl" value="${jobImageUrl}" type="hidden" class="form-control">
+        <input id="jobImageJobId1" value="${jobImageJobId}" type="hidden" class="form-control">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>语言版本 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="language" value="${language}" type="text" class="form-control">-->
+                        <select id="language" class="form-control">
+                            <option value="CN">中文</option>
+                            <option value="US">英文</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>职位名称 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="jobImageJobId" value="${jobImageJobId}" type="text" class="form-control">-->
+                        <select id="jobImageJobId" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>职位图示 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                       <!-- <input id="jobImageUrl" value="${jobImageUrl}" type="text" class="form-control">-->
+                        <input type="file" name="upload" id="upload"/>:
+                        <img alt="" src="" id="attatch_url" width="80px;" height="47px;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5>状态 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="status" value="${status}" type="text" class="form-control">-->
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> 启用
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0"> 禁用
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="JobImageEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="JobImageEditDlg.close()">取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

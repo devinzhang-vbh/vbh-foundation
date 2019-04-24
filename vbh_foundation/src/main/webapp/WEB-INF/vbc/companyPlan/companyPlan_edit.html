@@ -1,0 +1,64 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/companyPlan/companyPlan_edit.js"]}){
+<div class="container-fluid">
+    <form id="companyPlanForm">
+
+        <input id="planId" value="${planId}" type="hidden" class="form-control">
+        <input id="language1" value="${language}" type="hidden" class="form-control">
+
+
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>规划时间 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="planDate" value="${planDate}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项1 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="planItem1" value="${planItem1}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项2 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="planItem2" value="${planItem2}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项3 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="planItem3" value="${planItem3}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>序列 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="seq" value="${seq}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>语种 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <!--<input id="language" value="${language}"  type="text" class="form-control">-->
+      <select id="language" class="form-control">
+          <option value="CN">中文</option>
+          <option value="US">英文</option>
+      </select>
+  </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyPlanEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyPlanEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

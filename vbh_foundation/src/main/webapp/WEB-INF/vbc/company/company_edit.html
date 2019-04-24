@@ -1,0 +1,89 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/company/company_edit.js"]}){
+<div class="container-fluid">
+    <form id="companyForm">
+
+        <input id="companyId" value="${companyId}" type="hidden" class="form-control">
+        <input id="companyDesc1" value='${companyDesc}'  type="hidden" class="form-control">
+        <input id="language1" value="${language}"  type="hidden" class="form-control">
+
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>公司名称 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyName" value="${companyName}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司电话 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyPhone" value="${companyPhone}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司传真 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyFax" value="${companyFax}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司邮箱 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyEmail" value="${companyEmail}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司地址 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyAddress" value="${companyAddress}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司备案号 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyRecordNo" value="${companyRecordNo}"  type="text" class="form-control">
+  </div>
+   </div>
+ <!--<div class="form-group">
+<h5>公司简介 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyDesc" value="${companyDesc}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司文化简介 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyCultureDesc" value="${companyCultureDesc}"  type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>公司荣誉简介 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="companyRewardDesc" value="${companyRewardDesc}"  type="text" class="form-control">
+  </div>
+   </div>-->
+ <div class="form-group">
+<h5>语种 <span class="text-danger">*</span></h5>
+     <div class="controls">
+         <!--<input id="language" type="text" class="form-control">-->
+         <select id="language" class="form-control">
+             <option value="CN">中文</option>
+             <option value="US">英文</option>
+         </select>
+
+     </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

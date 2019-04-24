@@ -1,0 +1,59 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/companyPlan/companyPlan_add.js"]}){
+<div class="container-fluid">
+    <form id="companyPlanForm">
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>规划时间 <span class="text-danger">*</span></h5>
+  <div class="controls">
+   <input id="planDate" type="text" class="form-control" placeholder="请输入规划时间,如:2019年8月">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项1 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="planItem1" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项2 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="planItem2" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>事项3 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="planItem3" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>序列 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="seq" type="number" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>语种 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <!--<input id="language" type="text" class="form-control">-->
+      <select id="language" class="form-control">
+          <option value="CN">中文</option>
+          <option value="US">英文</option>
+      </select>
+  </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="CompanyPlanAddDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="CompanyPlanAddDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

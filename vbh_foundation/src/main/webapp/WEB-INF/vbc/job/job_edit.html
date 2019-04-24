@@ -1,0 +1,118 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/job/job_edit.js"]}){
+<div class="container-fluid" xmlns:th="http://www.w3.org/1999/xhtml">
+    <form id="jobForm">
+
+        <input id="jobId" value="${jobId}" type="hidden" class="form-control">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>职位分类 <span class="text-danger">*</span></h5>
+                    <!--<div class="controls">
+                     <input id="jobCategoryId" value="${jobCategoryId}"  type="text" class="form-control">
+                    </div>-->
+                    <div>
+                        <select id="jobCategoryId" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>岗位名称 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobName" value="${jobName}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>岗位编号 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobNumber" value="${jobNumber}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>工作地点 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobLocation" value="${jobLocation}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>工作年限 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobYear" value="${jobYear}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>学历要求 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="education" value="${education}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>招聘人数 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobNum" value="${jobNum}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>薪资待遇 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="salary" value="${salary}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>职位亮点 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="jobHighlights" value="${jobHighlights}" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>职位描述 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <textarea class="form-control" rows="5" id="jobDesc" value="${jobDesc}">${jobDesc}</textarea>
+                        <!--<input id="jobDesc" value="${jobDesc}"  type="text" class="form-control">-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>任职要求 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!-- <input id="jobNeedDesc" value="${jobNeedDesc}"  type="text" class="form-control">-->
+                        <textarea class="form-control" rows="5" id="jobNeedDesc"
+                                  value="${jobNeedDesc}">${jobNeedDesc}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>上架 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="status" value="${status}"  type="text" class="form-control">-->
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="status" value="1"> 是
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">否
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>语种 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="language" value="${language}"  type="text" class="form-control">-->
+                        <div>
+                            <select id="language" class="form-control">
+                                <option value="1">中文</option>
+                                <option value="2">英文</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="JobEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="JobEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

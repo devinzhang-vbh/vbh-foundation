@@ -1,0 +1,63 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/contactSetup/contactSetup_add.js","/assets/common/plugins/jquery/ajaxfileupload.js"]}){
+<div class="container-fluid">
+    <form id="contactSetupForm">
+        <div class="row">
+            <div class="col-12">
+                 <div class="form-group">
+<h5>官方渠道 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="contactType" type="text" class="form-control" placeholder="如:微信订阅号">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>图标 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <!--<input id="contactLogo" type="text" class="form-control">-->
+      <input type="file" name="upload" id="upload"/>:
+      <img alt="" src="" id="attatch_url" width="80px;" height="47px;">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>二维码 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <!--<input id="contactQrcode" type="text" class="form-control">-->
+      <input type="file" name="upload1" id="upload1"/>:
+      <img alt="" src="" id="attatch_url1" width="80px;" height="47px;">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>指向链接 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="contactUrl" type="text" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>排序 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <input id="seq" type="number" class="form-control">
+  </div>
+   </div>
+ <div class="form-group">
+<h5>语种 <span class="text-danger"></span></h5>
+  <div class="controls">
+   <!--<input id="language" type="text" class="form-control">-->
+      <select id="language" class="form-control">
+          <option value="CN">中文</option>
+          <option value="US">英文</option>
+      </select>
+  </div>
+   </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="ContactSetupAddDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="ContactSetupAddDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

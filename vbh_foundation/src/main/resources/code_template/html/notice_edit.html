@@ -1,0 +1,22 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/system/notice/notice_edit.js"]}){
+<div class="container-fluid">
+    <form id="noticeForm">
+
+        fieldHiddenHtmlContent
+
+        <div class="row">
+            <div class="col-12">
+                fieldHtmlContent
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="NoticeEditDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="NoticeEditDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}

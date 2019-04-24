@@ -1,0 +1,85 @@
+@layout("/common/_dialog.html",{plugins:["sweet-alert","layer","wangEditor"],js:["/assets/modular/vbc/news/news_add.js","/assets/common/plugins/ckeditor/ckeditor.js","/assets/common/plugins/jquery/ajaxfileupload.js","/assets/common/plugins/laydate/laydate.js"]}){
+<div class="container-fluid">
+    <form id="newsForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <h5>新闻分类 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <select id="newsCategory" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻标题 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="newsTitle" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻链接 <span class="text-danger"></span></h5>
+                    <div class="controls">
+                        <input id="newsLink" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻图片 <span class="text-danger">*</span></h5>
+
+                    <div class="controls">
+                        <!--<input id="newsImage" type="text" class="form-control">-->
+                        <input type="file" name="upload" id="upload"/>:
+                        <img alt="" src="" id="attatch_url" width="80px;" height="47px;">
+                    </div>
+                    <h6>图片建议尺寸：1013*600px <span class="text-danger"></span></h6>
+                </div>
+                <div class="form-group">
+                    <h5>新闻来源 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="newsSource" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>发布时间 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="upTime" type="datetime-local" class="form-control">-->
+                        <input type="text" id="newUpTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>新闻内容 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                       <!-- <input id="newsContent" type="text" class="form-control">-->
+                        <textarea cols="80" id="newsContent" name="newsContent" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group" style="display: none;">
+                    <h5>状态 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <input id="status" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>语言 <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <!--<input id="language" type="text" class="form-control">-->
+                        <select id="language" class="form-control">
+                            <option value="CN">中文</option>
+                            <option value="US">英文</option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-xs-right">
+                    <button class="btn btn-info normal-button-width" onclick="NewsAddDlg.ensure()">提交</button>
+                    <button class="btn btn-inverse normal-button-width m-l-10" onclick="NewsAddDlg.close()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@}
